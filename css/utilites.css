@@ -1,0 +1,73 @@
+/*------------Utilities--------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------Buttons--------------------- */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline {
+  border: 1px solid #fff;
+}
+
+.btn-dark {
+  background-color: var(--dark-color);
+}
+
+.btn:active {
+  transform: translateY(1.5px);
+}
+
+.btn-outline:hover {
+  background-color: #0471dc;
+  transform: scale(0.98);
+}
+
+.btn-dark:hover {
+  transform: scale(0.98);
+}
+
+/* --------------------Flexbox--------------------- */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* --------------------Grids--------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
