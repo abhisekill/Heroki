@@ -45,6 +45,17 @@ img {
   width: 100%;
 }
 
+pre {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0;
+}
+
 /*------------NavBar--------- */
 
 .navbar {
@@ -107,6 +118,11 @@ img {
   padding: 40px;
   justify-self: flex-end;
   z-index: 100;
+  animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-text {
+  animation: slideInFromLeft 1s ease-in;
 }
 
 .showcase-form .form-control {
@@ -141,6 +157,7 @@ img {
 /* -----------------------Stats----------------- */
 .stats {
   padding-top: 100px;
+  animation: slideInFromBottom 1s ease-in;
 }
 
 .stats-heading {
@@ -224,11 +241,108 @@ img {
   flex-wrap: wrap;
 }
 
+/* -----------------------Features----------------- */
+/* heading */
+.features-head,
+.docs-head {
+  background-color: var(--primary-color);
+  padding: 2rem 0;
+  color: #fff;
+}
+
+.features-head h1,
+.docs-head h1 {
+  font-size: 4rem;
+}
+
+.features-head p,
+.docs-head p {
+  font-size: 20px;
+}
+
+.features-head img,
+.docs-head img {
+  width: 200px;
+  justify-self: end;
+}
+
+/* sub-head */
+.features-sub-head {
+  background-color: var(--light-color);
+  padding: 2rem 0;
+}
+
+.features-sub-head h1 {
+  font-size: 2rem;
+}
+
+.features-sub-head img {
+  width: 300px;
+  justify-self: end;
+}
+
+/* features main */
+.features-main {
+  margin: 1.5rem 0;
+}
+
+.features-main .grid {
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1.5rem;
+}
+
+.features-main .card i {
+  margin-right: 20px;
+}
+
+.features-main .grid .card:first-child {
+  grid-column: 1 / span 3;
+}
+
+.features-main .grid .card:nth-child(2) {
+  grid-column: 1 / span 2;
+}
+
+/* -----------------------Docs----------------- */
+/* docs main */
+.docs-main {
+  margin: 1.5rem 0;
+}
+
+.docs-main .grid {
+  grid-template-columns: 1fr 2fr;
+  padding: 1.5rem 0;
+}
+
+.docs-main .card:first-child {
+  background-color: var(--light-color);
+  align-self: flex-start;
+}
+
+.docs-main .card h3,
+.docs-main .card ul {
+  padding: 10px;
+}
+
+.docs-main .card li {
+  padding: 7px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.docs-main .card li a:hover {
+  font-weight: bold;
+}
+
+.docs-main .card:nth-child(2) h2 {
+  font-weight: bold;
+  margin: 20px 0;
+}
+
 /* -----------------------footer----------------- */
 footer {
   background-color: var(--dark-color);
   color: white;
-  padding: 4rem;
+  padding: 4rem 0;
 }
 
 footer a {
@@ -251,6 +365,43 @@ footer .social a {
   margin: 0 10px;
 }
 
+/* ---------Animations--------------- */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* -----------Media Queries-------------- */
 /* tablets and under */
 @media (max-width: 768px) {
@@ -258,7 +409,10 @@ footer .social a {
   .showcase .grid,
   .stats .grid,
   .cli .grid,
-  .cloud .grid {
+  .cloud .grid,
+  .features-main .grid,
+  .docs-head .grid,
+  .docs-main .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
@@ -270,15 +424,44 @@ footer .social a {
   .showcase-text {
     text-align: center;
     margin-top: 40px;
+    animation: slideInFromTop 1s ease-in;
   }
 
   .showcase-form {
     justify-self: center;
     margin: auto;
+    animation: slideInFromBottom 1s ease-in;
   }
 
   .cli .grid > img {
     grid-row: 1;
+    grid-column: 1;
+  }
+
+  /* features and docs */
+
+  .features-head .grid div,
+  .features-sub-head .grid div,
+  .docs-head .grid div {
+    text-align: center;
+  }
+
+  .features-head .grid img,
+  .features-head .grid div,
+  .features-sub-head .grid div,
+  .features-sub-head .grid img,
+  .docs-head .grid img,
+  .docs-head .grid div,
+  .docs-main .grid .card {
+    justify-self: center;
+  }
+
+  .docs-main .grid .card {
+    width: 75%;
+  }
+
+  .features-main .grid .card:first-child,
+  .features-main .grid .card:nth-child(2) {
     grid-column: 1;
   }
 }
@@ -299,7 +482,8 @@ footer .social a {
   }
 
   .showcase-form {
-    width: 300px;
+    width: 95%;
+    height: auto;
   }
 
   .footer .grid {

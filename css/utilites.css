@@ -49,6 +49,22 @@
 }
 
 /* --------------------Flexbox--------------------- */
+.alert {
+  background-color: var(--light-color);
+  padding: 10px 20px;
+  margin: 15px 0;
+}
+
+.alert i {
+  margin-right: 10px;
+}
+
+.alert-success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+/* --------------------Flexbox--------------------- */
 
 .flex {
   display: flex;
